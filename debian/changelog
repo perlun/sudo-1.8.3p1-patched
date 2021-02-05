@@ -1,3 +1,15 @@
+sudo (1.8.3p1-1ubuntu3.8) precise-security; urgency=low
+
+  * Custom build to backport the security patch below to Ubuntu 12.04.
+  * Heap-based buffer overflow (CVE-2021-3156)
+    - Reset valid_flags to MODE_NONINTERACTIVE for sudoedit
+    - Add sudoedit flag checks in plugin that are consistent with front-end
+    - Fix potential buffer overflow when unescaping backslashes in user_args
+    - Fix the memset offset when converting a v1 timestamp to TS_LOCKEXCL
+    - Don't assume that argv is allocated as a single flat buffer
+
+ -- Per Lundberg <perlun@gmail.com>  Thu, 04 Feb 2021 13:26:54 +0000
+
 sudo (1.8.3p1-1ubuntu3.7) precise-security; urgency=medium
 
   * SECURITY UPDATE: arbitrary file access via TZ
